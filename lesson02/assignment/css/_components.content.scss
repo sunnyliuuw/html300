@@ -34,7 +34,6 @@ h1 {
 //left card style with nested feature
 .profile {
     margin: 1rem auto;
-    width: 100%;
     //headshot style
     &_headshot {
       display: flex;
@@ -42,6 +41,7 @@ h1 {
       border-radius: 100%;
       margin: auto;
       width: 100%;
+      max-width: 50%;
     }
     //profile name style
     &_name {
@@ -66,6 +66,7 @@ h1 {
     padding-right: 2rem;
     margin: 1rem auto;
     width: 100%;
+    max-width: 70%;
     //info title style
     &_title {
       font-weight: bold;
