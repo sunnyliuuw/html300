@@ -13,6 +13,7 @@ $('#mapButton').click(function() {
   });
   //display result
   $('#double').text(result);
+  console.log(result);
 });
 
 //define arrary
@@ -27,6 +28,7 @@ $('#findButton').click(function() {
   });
   //display result
   $('#resultOfFind').text(findResult);
+  console.log(findResult);
 });
 
 //define function for checking number
@@ -38,6 +40,7 @@ $('#everyButton').click(function() {
   //display result
   $('#everyInput').text($('#every').val());
   $('#everyNum').text(Arr.every(checkNum));
+  console.log(Arr.every(checkNum));
 });
 
 //define array
@@ -53,5 +56,6 @@ $('#forEachButton').click(function() {
     //display result
     $('#createList').text(createArr);
   });
+  console.log(createArr);
 });
 //end
