@@ -16,15 +16,13 @@ h1 {
     color: $black;
 }
 
-h2 {
-    font-style: italic;
-}
-
+//card gray background
 .card-container {
     background-color: $gray;
     padding: 2rem;
 }
 
+//card white background and flex body
 .card-background {
     background-color: $white;
     padding: 2rem;
@@ -33,9 +31,11 @@ h2 {
     justify-content: flex-start;
 }
 
+//left card style with nested feature
 .profile {
     margin: 1rem auto;
     width: 100%;
+    //headshot style
     &_headshot {
       display: flex;
       justify-content: center;
@@ -43,31 +43,39 @@ h2 {
       margin: auto;
       width: 100%;
     }
+    //profile name style
     &_name {
       color: $green;
       display: flex;
       justify-content: center;
     }
+    //profile role style
     &_role {
       color: $green;
+      font-style: italic;
       display: flex;
       justify-content: center;
     }
 }
 
+//card right side style and nested feature
 .card {
+    //background color gray
     background-color: $gray;
     padding-left: 2rem;
     padding-right: 2rem;
     margin: 1rem auto;
     width: 100%;
+    //info title style
     &_title {
       font-weight: bold;
       margin: 1.5rem auto;
     }
+    //info content style
     &_content {
       font-weight: normal;
     }
+    //linkedin icon and content style
     &_linkedin {
       width: 1.5rem;
     }
