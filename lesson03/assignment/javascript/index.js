@@ -8,6 +8,8 @@ $(document).ready(function(){
     .then(function(data) {
         //use map function to loop and map all elements in the array
         let dataToDisplay = data.map(function(obj){
+          //console the objects in json
+          console.log(Object.entries(obj));
           //maps the value
           return `
             <main class="main">
@@ -34,5 +36,6 @@ $(document).ready(function(){
         }) //end of map function
         //display the data to html
         $(".template-hook").append(dataToDisplay);
+
     })
 })
