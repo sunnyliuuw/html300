@@ -1,0 +1,81 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: inherit;
+}
+
+//styling container box
+.container {
+  width: 100%; //fullfill the page width
+  margin-top: 0; //0 margin on the top
+  display: grid; //enable grid
+  grid-template-columns: repeat(3, 1fr); //three grid template columns
+  grid-template-areas: 'header' 'nav' 'main' 'footer'; //setup grid template area
+}
+
+//styling nav bar container
+.nav-container {
+  list-style: none; //remove bullet in the list
+  display: flex; //enable flexbox
+  padding: 0;
+  margin: 0;
+}
+
+//styling nav class
+.nav {
+  padding: 1rem;
+  width: 20%; //divide nav item evenly
+}
+
+//styling nav bar url text
+.nav-container li a {
+  text-decoration: none;
+  color: white;
+}
+
+//BEM style items in grid
+.item {
+  padding: 1rem;
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  //styling header box
+  &__header {
+    grid-area: header;
+    background-color: red;
+    grid-column: 1/4; //grid start at 1 end at 4
+  }
+  &__nav {
+    grid-area: nav;
+    background-color: lightgreen;
+    grid-column: 1/4; //grid start at 1 end at 4
+  }
+  &__main {
+    grid-area: main;
+    padding: 0;
+    grid-column: 1/4; //grid start at 1 end at 4
+    display: grid; //enable grid inside the main area
+    grid-template-columns: repeat(3, 1fr); //create 3 columns
+  }
+  &__footer {
+    grid-area: footer;
+    background-color: blue;
+    grid-column: 1/4; //grid start at 1 end at 4
+  }
+}
+
+.main {
+  padding: 1rem;
+  &__sidebar {
+    background-color: purple;
+    grid-column: 1/2; //grid start at 1 end at 2
+  }
+  &__mainsection {
+    background-color: orange;
+    grid-column: 2/4; //grid start at 2 end at 4
+  }
+}
