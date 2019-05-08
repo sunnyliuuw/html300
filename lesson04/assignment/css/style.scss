@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css?family=Saira+Extra+Condensed');
+//define variable
+$banner-color: linear-gradient(to bottom,  rgba(0,0,0,0.75) -10%,rgba(0,0,0,0) 100%);
+$underline-color: rgba(255,255,255,0.8);
+$white: white;
+//box-sizing for overall page
+*,
+*::before,
+*::after {
+ box-sizing: border-box;
+}
+//body style
+body {
+ font-family: 'Saira Extra Condensed', sans-serif;
+ letter-spacing: 1px;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+}
+//container class
+.container {
+ display: flex; //enable flex in container
+ flex-direction: column;
+ min-height: 100vh;
+ background: {
+   image: $white;
+   size: cover;
+   position: center center;
+ }
+}
+//header box
+header {
+ background-image: $banner-color; //use defined variable for background-image
+ text-align: center; //center the header
+ padding: 0.5rem 0 5rem;
+ font-size: 1.25rem;
+}
+//unorder list style
+ul {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+}
+
+li {
+ display: inline-flex;
+}
+//define mixin for text style in link
+@mixin text-style {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+//nav bar link
+a {
+ position: relative;
+ padding: 1rem 0 0.5rem;
+ margin: 0 1.5rem;
+ color: $white;
+ @include text-style;
+//after hyperlink style
+ &::after {
+   content: '';
+   position: absolute;
+   left: 50%;  //underline starting point at middle of the context
+   bottom: 0; //underline at bottom position 0
+   transform: translateX(50%) scaleX(0);
+   //changed translateX to positive 50% to make the underline show up from right 50% starting point
+   //scaleX 0 makes the underline hide at the init status
+   transform-origin: 50% 50%;
+   width: 100%;
+   height: 1px;
+   background-color: $underline-color; //underline color
+   transition: transform 250ms; //reflect duration
+ }
+//hover on hyperlink
+ &:hover {
+   //hover on hyperlink after status
+   &::after {
+     //translateX negative makes the hover underline show up from right to left
+     //scalex from 0 to 1 make the underlink visiable
+     transform: translateX(-50%) scaleX(1);
+
+   }
+
+ }
+
+}
+
+//source code
+// @import url('https://fonts.googleapis.com/css?family=Saira+Extra+Condensed');
+//
+// *,
+// *::before,
+// *::after {
+//  box-sizing: border-box;
+// }
+//
+// body {
+//  font-family: 'Saira Extra Condensed', sans-serif;
+//  letter-spacing: 1px;
+//  -webkit-font-smoothing: antialiased;
+//     -moz-osx-font-smoothing: grayscale;
+// }
+//
+// .container {
+//  display: flex;
+//  flex-direction: column;
+//  min-height: 100vh;
+//  background: {
+//    image: url('https://source.unsplash.com/1920x1080/?nature');
+//    size: cover;
+//    position: center center;
+//  }
+// }
+//
+// header {
+//  background-image: linear-gradient(to bottom,  rgba(0,0,0,0.75) -10%,rgba(0,0,0,0) 100%);
+//  text-align: center;
+//  padding: 0.5rem 0 5rem;
+//  font-size: 1.25rem;
+// }
+//
+// ul {
+//  list-style: none;
+//  margin: 0;
+//  padding: 0;
+// }
+//
+// li {
+//  display: inline-flex;
+// }
+//
+// a {
+//  position: relative;
+//  padding: 1rem 0 0.5rem;
+//  margin: 0 1.5rem;
+//  color: white;
+//  text-decoration: none;
+//  text-transform: uppercase;
+//
+//  &::after {
+//    content: '';
+//    position: absolute;
+//    left: 50%;
+//    bottom: 0;
+//    transform: translateX(-50%) scaleX(0);
+//    transform-origin: 50% 50%;
+//    width: 100%;
+//    height: 1px;
+//    background-color: rgba(255,255,255,0.8);
+//    transition: transform 250ms;
+//  }
+//
+//  &:hover {
+//
+//    &::after {
+//      transform: translateX(-50%) scaleX(1);
+//    }
+//
+//  }
+//
+// }
+//code reference https://codepen.io/matchboxhero/pen/VMEWrq?editors=1100
+//article https://www.creativebloq.com/inspiration/css-animation-examples
+//example site https://godofwar.playstation.com/
