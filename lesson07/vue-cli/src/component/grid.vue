@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="grid">
     <!-- body background color -->
     <div class="bg-primary">
       <!-- site container color -->
@@ -26,18 +26,22 @@
         </nav>
         <!-- main -->
         <main>
-          <!-- Jumbotron, if button is not clicked show the jumbotron-->
-          <div class="jumbotron" v-if="counter==0">
-            <h1>{{jumbotron_title}}</h1>
-            <p>{{jumbotron_body}}</p>
-            <!-- button and tooltip -->
-            <button v-on:click = "clicked" type="button" class="btn btn-secondary" data-toggle="tooltip" v-bind:title="Tooltip">
-              {{button}}
-            </button>
-          </div>
-          <!-- If the button is clicked, say hello world-->
-          <div v-else>
-            <h1>Hello World</h1>
+          <!-- responsive grid system container -->
+          <div class="container">
+            <!-- row one -->
+            <div class="row">
+              <!-- phone 12 tablet 12 laptop 8 desktop 8 -->
+              <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 bg-info">phone12 tablet12 desktop8</div>
+              <!-- phone 12 tablet 12 laptop 4 desktop 4 -->
+              <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 bg-dark">phone12 tablet12 desktop8</div>
+            </div>
+            <!-- row two -->
+            <div class="row">
+              <!-- phone 12 tablet 6 laoptop 4 desktop 4 -->
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">.col-xs-6 .col-sm-4</div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">.col-xs-6 .col-sm-4</div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">.col-xs-6 .col-sm-4</div>
+            </div>
           </div>
         </main>
         <!-- footer -->
@@ -57,25 +61,14 @@ export default {
     return {
       header: 'Header',
       footer: 'Footer',
-      button: 'Click Me!',
-      jumbotron_title: 'Jumbotron',
-      jumbotron_body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      Tooltip: 'Click to explore',
-      copyright: '© 2019 Copyright',
-      counter: 0  //initial counter value
+      copyright: '© 2019 Copyright'
     }
-  },
-    //update counter value
-    methods: {
-      clicked: function() {
-        this.counter++;
-      }
-    }
+  }
 }
 </script>
 
 <style>
-#app {
+#grid {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

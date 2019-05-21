@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="accordion">
     <!-- body background color -->
     <div class="bg-primary">
       <!-- site container color -->
@@ -26,18 +26,23 @@
         </nav>
         <!-- main -->
         <main>
-          <!-- Jumbotron, if button is not clicked show the jumbotron-->
-          <div class="jumbotron" v-if="counter==0">
-            <h1>{{jumbotron_title}}</h1>
-            <p>{{jumbotron_body}}</p>
-            <!-- button and tooltip -->
-            <button v-on:click = "clicked" type="button" class="btn btn-secondary" data-toggle="tooltip" v-bind:title="Tooltip">
-              {{button}}
-            </button>
-          </div>
-          <!-- If the button is clicked, say hello world-->
-          <div v-else>
-            <h1>Hello World</h1>
+          <!-- accordion parent, use for loop to list all objects-->
+          <div id="accordion-card" v-for="card in accordion_card">
+            <!-- card -->
+            <b-card no-body class="mb-1">
+              <!-- card header -->
+              <b-card-header header-tag="header" class="p-1">
+                <!-- use v-bind for attributes and {{}} for text -->
+                <b-button block href="#" v-b-toggle.v-bind:id="card.id">{{card.title}}</b-button>
+              </b-card-header>
+              <!-- visible for the first default object -->
+              <b-collapse v-bind:id="card.id" visible accordion="my-accordion" data-parent="#accordion-card">
+                <!-- card content body -->
+                <b-card-body>
+                  <b-card-text>{{card.text}}</b-card-text>
+                </b-card-body>
+              </b-collapse>
+            </b-card>
           </div>
         </main>
         <!-- footer -->
@@ -57,25 +62,20 @@ export default {
     return {
       header: 'Header',
       footer: 'Footer',
-      button: 'Click Me!',
-      jumbotron_title: 'Jumbotron',
-      jumbotron_body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      Tooltip: 'Click to explore',
       copyright: '© 2019 Copyright',
-      counter: 0  //initial counter value
+      //array of accordion objects
+      accordion_card: [
+        {id: 'accordion-1', title: 'Accordion 1', text: 'Accordion_text_1'},
+        {id: 'accordion-2', title: 'Accordion 2', text: 'Accordion_text_2'},
+        {id: 'accordion-3', title: 'Accordion 3', text: 'Accordion_text_3'}
+      ]
     }
-  },
-    //update counter value
-    methods: {
-      clicked: function() {
-        this.counter++;
-      }
-    }
+  }
 }
 </script>
 
 <style>
-#app {
+#accordion {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
