@@ -18,5 +18,5 @@ Vue.component('image-post', {
     }
   },
   //displaying images
-  template: '<b-container class="p-4 bg-dark" v-for="img in images"><b-img fluid mx-auto d-block rounded v-bind:src="img.asset" v-bind:alt="alt"></b-img></b-container>'
+  template: '<div><b-container class="p-4 bg-dark" v-for="img in images"><b-img fluid mx-auto d-block rounded v-bind:src="img.asset" v-bind:alt="alt"></b-img></b-container></div>'
 })
